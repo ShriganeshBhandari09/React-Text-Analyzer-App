@@ -1,11 +1,26 @@
 import { useState } from "react";
-import './TextForm.css'
+import "./TextForm.css";
 
 const TextForm = () => {
   const [text, setText] = useState("");
+  console.log(text);
 
   function handleChange(event) {
     setText(event.target.value);
+  }
+  function convertToUpperCase() {
+    let newText = text.toUpperCase();
+    setText(newText);
+  }
+
+  function convertToLowerCase() {
+    let newText = text.toLowerCase();
+    setText(newText);
+  }
+
+  function clearText() {
+    let newText = "";
+    setText(newText);
   }
 
   const countSentences = (text) =>
@@ -26,7 +41,16 @@ const TextForm = () => {
           onChange={handleChange}
         ></textarea>
       </div>
-      <div className="table-responsive">
+      <button className="btn btn-primary" onClick={convertToUpperCase}>
+        UPPER CASE
+      </button>
+      <button className="btn btn-primary mx-3" onClick={convertToLowerCase}>
+        lower case
+      </button>
+      <button className="btn btn-primary" onClick={clearText}>
+        Clear Text
+      </button>
+      <div className="table-responsive my-3">
         <table className="table table-bordered">
           <thead>
             <tr>

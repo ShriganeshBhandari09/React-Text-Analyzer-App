@@ -3,8 +3,6 @@ import "./TextForm.css";
 
 const TextForm = () => {
   const [text, setText] = useState("");
-  console.log(text);
-
   function handleChange(event) {
     setText(event.target.value);
   }
